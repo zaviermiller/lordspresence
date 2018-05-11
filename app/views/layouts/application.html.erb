@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Churchapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato:200,300,400,700,900" rel="stylesheet">
+    <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <% if notice %>
+      <div class="noticed div"><p class="notice"><%= notice %></p></div>
+    <% end %>
+    <% if alert %>
+      <div class="alertd div"><p class="notice"><%= alert %></p></div>
+    <% end %>
+    <%= yield %>
+    <style>
+    .div {
+      width: 100%;
+      position: absolute;
+      z-index: 100;
+      display: none;
+    }
+    .alertd {
+      background-color: #f94e3f;
+    }
+    .noticed {
+      background-color: #72ff8a;
+    }
+      .notice {
+        color: white;
+        font-family: 'Lato',open-sans;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 28px 0 20px 0;
+        letter-spacing: 2px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+        $('.div').fadeIn().delay(4000).fadeOut();
+      });
+    </script>
+  </body>
+</html>

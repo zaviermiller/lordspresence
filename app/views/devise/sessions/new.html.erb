@@ -1,0 +1,90 @@
+<div class="parent">
+<h2>Sign-In</h2>
+<br>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+<div class="field">
+  <%= form.email_field :email,placeholder: "Email" %>
+</div>
+
+<div class="field">
+  <%= form.password_field :password, placeholder: "Password" %>
+</div>
+
+  <div class="actions">
+    <%= form.submit "Sign In",class: "submit" %>
+  </div>
+  <p class="link"><%= link_to "Dont have an account yet? Sign up", new_user_registration_path%><p>
+<% end %>
+</div>
+<style>
+body {
+  background-color: #f9f9f9;
+}
+.link {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+.parent {
+  width: 400px;
+  height: 420px;
+  margin-left: -200px;
+  left: 50%;
+  top: 70px;
+  position: relative;
+  background-color: #fff;
+  padding-top: 2.5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.parent > h2 {
+  color: #444;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 26px;
+  color: #fe4365;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  font-family: 'Lato',sans-serif;
+}
+.parent > p {
+  font-family: sans-serif;
+  color: #666;
+  text-align: center;
+  margin-top: 25px;
+}
+  input[type=email],input[type=password]{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 80%;
+    height: 50px;
+    font-size: 17px;
+    letter-spacing: .5px;
+    font-weight: 300;
+    margin-left: -40%;
+    left: 50%;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .submit {
+    width: 80%;
+    height: 50px;
+    background-color: #fe4365;
+    border: none;
+    left: 50%;
+    margin-left:-40%;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    font-family: 'Lato',sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+  }
+  .submit:hover {
+    background-color: #e03856;
+  }
+</style>

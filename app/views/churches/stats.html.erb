@@ -1,0 +1,397 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+  <div class="topleft"><h1>Analytics</h1><h3>BETA</h3></div>
+  <div class="left">
+  <div class="list active"><p>Dashboard</p></div>
+  <a href="/"><div class="list"><p>Home</p></div></a>
+  </div>
+<div class="container parent">
+<div class="datediv"><h3 class="date">This Week<br>(<%= Date.today.strftime('%B %d, %Y') %>)</h3></div>
+<div class="container top">
+<div class="sessions block">
+<h2>ATTENDANCE</h2>
+<h1 class="sessionsh1"><%= @attendance %></h1>
+<% if (@attendance - 0) > 0 %>
+<span class="icon-up-arrow"></span>
+<% elsif (@attendance - 0) < 0 %>
+<span class="icon-down-arrow"></span>
+<% else %>
+<span class="icon-equal-dash"></span>
+<% end %>
+<h4 class="prevsessions"><%= (@attendance - 0).abs %></h4>
+  <div id="sessions" style="width: 415px; height: 50px"></div>
+  </div>
+  <div class="images block">
+       <h1><%= @visitors %></h1>
+  <% if (@visitors - 0) > 0 %>
+  <span class="icon-up-arrow"></span>
+  <% elsif (@visitors - 0) < 0 %>
+  <span class="icon-down-arrow"></span>
+  <% else %>
+  <span class="icon-equal-dash"></span>
+  <% end %>
+  <h4><%= (@visitors - 0).abs %></h4>
+  <h2>VISITORS</h2>
+  </div>
+  <div class="stoodle block">
+  <h1><%= @members %></h1>
+  <% if (@members - 0) > 0 %>
+  <span class="icon-up-arrow"></span>
+  <% elsif (@members - 0) < 0 %>
+  <span class="icon-down-arrow"></span>
+  <% else %>
+  <span class="icon-equal-dash"></span>
+  <% end %>
+  <h4><%= (@members - 0).abs %></h4>
+  <h2>MEMBERS</h2>
+  </div>
+</div>
+</div>
+  <style type="text/css">
+    body {
+      background: #32353e;
+    }
+    .block {
+      margin-right: 20px;
+    }
+    .sessions {
+      color: white;
+      background-color: #3c3e47;
+      height: 158px;
+      width: 415px;
+      display: table-cell;
+      vertical-align: bottom;
+      position: relative;
+    }
+    .hours {
+      color: white;
+      background-color: #3c3e47;
+      height: 295px;
+      width: 770px;
+      display: table-cell;
+      vertical-align: bottom;
+      position: relative;
+    }
+    .grade {
+      color: white;
+      background-color: #3c3e47;
+      height: 658px;
+      width: 302px;
+      position: relative;
+      right: 152px;
+      padding: 0;
+    }
+    .gradeul {
+      width: 300px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 656px;
+      border: 2px solid #aaa;
+    }
+    .gradeul > li:first-child {
+      font-size: 25px;
+      justify-content: flex-start !important;
+    }
+    .gradeul > li {
+      font-weight: 300;
+      letter-spacing: 1px;
+      font-size: 18px;
+      opacity: .75;
+      border-bottom: 2px solid #aaa;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 15px;
+    }
+    .gradeul > li > span {
+      margin-right: auto;
+    }
+    .libg {
+      justify-content: flex-start;
+      position: absolute;
+      left: 2px;
+      z-index: -1;
+      height: 45px;
+      width: 200px;
+      background-color: #282b33;
+    }
+    .container {
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  font-size: 1.5em;
+}
+p,h1,h2,h3,h4,h5,h6,li,a {
+  font-family: 'Lato', sans-serif;
+}
+    .block > h2 {
+      font-weight: 300;
+      letter-spacing: 2px;
+      position: absolute;
+      margin-left: 30px;
+      opacity: .75;
+      margin-top: 25px;
+    }
+    .complete > h2 {
+      font-weight: 300;
+      letter-spacing: 2px;
+      position: absolute;
+      margin-left: 30px;
+      opacity: .75;
+      margin-top: 0px;
+      line-height: 25px;
+    }
+    .block > span {
+      margin-left: 20px;
+      display: inline-block;
+      font-size: 5px;
+    }
+    .block > h1 {
+      font-weight: 300;
+      margin-left: 30px;
+      font-size: 40px;
+      margin-top: 60px;
+      display: inline-block;
+    }
+    .complete > h1 {
+      font-weight: 300;
+      margin-left: 20px;
+      font-size: 40px;
+      margin-top: 30px;
+      display: inline-block;
+    }
+    .complete > span {
+      margin-left: 10px;
+    }
+    .block > h4 {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 200;
+    }
+    .images {
+      width: 270px;
+      height: 166px;
+      background-color: #3c3e47;
+      position: relative;
+      display: inline-block;
+      color: white;
+    }
+    .stoodle {
+      width: 270px;
+      height: 166px;
+      background-color: #3c3e47;
+      position: relative;
+      color: white;
+      display: inline-block;
+      margin-right: 0px;
+    }
+    .complete {
+      width: 205px;
+      height: 139px;
+      background-color: #3c3e47;
+      clear: both;
+      position: relative;
+      display: block;
+      color: white;
+      margin-bottom: 20px;
+    }
+    .images > h2, .stoodle > h2 {
+      position: relative !important;
+      bottom: 30px;
+    }
+    .images > span, .stoodle > span {
+      margin-left: 50px;
+    }
+    .topleft {
+      color: white;
+      width: 200px;
+      height: 60px;
+      background-color: #fe4365;
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin-bottom: 100px;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+    .topleft > h1 {
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-left: 20px;
+      font-size: 22px;
+    }
+    .topleft > h3 {
+      margin-left: 30px;
+      font-size: 10px;
+      font-weight: 300;
+    }
+    .left {
+      position: fixed;
+      top: 60px;
+      left: 0px;
+      background-color: #2a2d37;
+      width: 200px;
+      height: 100%;
+      z-index: 3;
+    }
+    .topbar {
+      width: 100%;
+      position: fixed;
+      left: 200px;
+      top: 0px;
+      height: 60px;
+      color: #6f7780;
+      font-family: Lato;
+      font-weight: 300;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+      background-color: white;
+      box-shadow: 0px 1px 20px rgba(0, 0, 0, .1);
+      z-index: 30;
+    }
+    .bottomleft {
+      background-color: #24262d;
+      height: 100px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .list {
+      margin-top: 20px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border-left: 4px #2a2d37 solid;
+    }
+    .list > p {
+      font-weight: 300;
+      font-size: 15px;
+      color: white;
+      letter-spacing: 1px;
+      margin: 15px !important;
+    }
+    .active {
+      border-left: 4px #fe4365 solid;
+    }
+    .list:hover{
+      border-left: 4px #fe4365 solid;
+    }
+    .date {
+      color: white;
+      text-align: right;
+      font-weight: 300;
+      color: #949ba2;
+      line-height: 20px;
+      letter-spacing: 1.5px;
+      font-size: 1em;
+    }
+    .datediv {
+      width: 995px;
+      height: 85px;
+      position: absolute;
+      top: 30px;
+      border-bottom: 1px solid #3c3e47;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 2;
+      background-color: #32353e;
+    }
+    #sessions, #hours {
+      margin: 0;
+      padding: 0;
+    }
+
+    .parent {
+      left: 200px;
+      position: absolute;
+      width: -webkit-calc(100% - 200px);
+      width:    -moz-calc(100% - 200px);
+      width:         calc(100% - 200px);
+    }
+    .top {
+      top: 140px;
+      position: absolute;
+    }
+    .second {
+      top: 318px;
+      position: relative;
+      left: 150px;
+    }
+    .third {
+      position: relative;
+      top: 636px;
+    }
+  </style>
+<script>
+$(document).ready(function(){
+  google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawCount);
+
+function drawCount() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Attendance'],
+          <% ((1.month.ago).beginning_of_day.to_date..(1.day.ago).to_date).each do |date| %>
+          <% if date.sunday? %>
+            ["<%= date.strftime('%B %d, %Y') %>",<%= Visitor.where(created_at: date).size %>],
+          <% end %>
+          <% end %>
+          <% if Date.today.sunday? %>
+          ["<%= Date.today.strftime('%B %d, %Y') %>",<%= @attendance %>]
+          <% end %>
+        ]);
+        var options = {
+          legend: 'none',
+          curveType: 'function',
+          lineWidth: 2,
+                animation:{
+              duration: 500,
+              easing: 'inAndOut',
+              startup: true
+            },
+          chartArea: {
+            height: '100%',
+            width: '100%',
+          },
+          backgroundColor: { fill:'#3c3e47' },
+          series: {
+            0: {color: '#ffffff'}
+          },
+          vAxis: {
+            gridlines: {
+              color: 'transparent'
+            },
+            baselineColor: 'transparent',
+            textPosition: 'none'
+          },
+          hAxis: { gridlines: {
+              color: 'transparent'
+            },
+            textPosition: 'none' }
+        };
+        var chart = new google.visualization.AreaChart(document.getElementById('sessions'));
+
+        chart.draw(data, options);
+      };
+    });
+</script>
+</body>
+</html>

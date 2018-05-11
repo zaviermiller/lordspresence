@@ -1,0 +1,69 @@
+<!--  <div class="images block">
+     <h1><%= @images %></h1>
+<% if (@images - @previmages) > 0 %>
+<span class="icon-up-arrow"></span>
+<% elsif (@images - @previmages) < 0 %>
+<span class="icon-down-arrow"></span>
+<% else %>
+<span class="icon-equal-dash"></span>
+<% end %>
+<h4><%= (@images - @previmages).abs %></h4>
+<h2>IMAGES SHARED</h2>
+</div>
+<div class="stoodle block">
+<h1><%= @stoodle %></h1>
+<% if (@stoodle - @prevstoodle) > 0 %>
+<span class="icon-up-arrow"></span>
+<% elsif (@stoodle - @prevstoodle) < 0 %>
+<span class="icon-down-arrow"></span>
+<% else %>
+<span class="icon-equal-dash"></span>
+<% end %>
+<h4><%= (@stoodle - @prevstoodle).abs %></h4>
+<h2>STOODLE SESSIONS</h2>
+</div>
+</div>
+<div class="second">
+  <div class="complete block">
+<h1><%= (@complete * 100).round%>%</h1>
+<% if (@complete - @prevcomplete) > 0 %>
+<span class="icon-up-arrow"></span>
+<% elsif (@complete - @prevcomplete) < 0 %>
+<span class="icon-down-arrow"></span>
+<% else %>
+<span class="icon-equal-dash"></span>
+<% end %>
+<h4><%= ((@complete - @prevcomplete).abs * 100).round %>%</h4>
+<h2>COMPLETED ASSIGNMENT</h2>
+</div>
+    <div class="complete block">
+<h1><%= (@master * 100).round %>%</h1>
+<% if (@master - @prevmaster) > 0 %>
+<span class="icon-up-arrow"></span>
+<% elsif (@master - @prevmaster) < 0 %>
+<span class="icon-down-arrow"></span>
+<% else %>
+<span class="icon-equal-dash"></span>
+<% end %>
+<h4><%= ((@master - @prevmaster).abs  * 100).round%>%</h4>
+<h2>PROVED MASTERY</h2>
+</div>
+</div>
+<div class="second right">
+<div class="hours block">
+<h2>HOURS TUTORED</h2>
+<h1><%= @hours %></h1>
+<% if (@hours - @prevhours) > 0 %>
+<span class="icon-up-arrow"></span>
+<% elsif (@hours - @prevhours) < 0 %>
+<span class="icon-down-arrow"></span>
+<% else %>
+<span class="icon-equal-dash"></span>
+<% end %>
+<h4><%= (@hours - @prevhours).abs%></h4>
+<div id="hours" style="width: 770px; height: 190px"></div>
+</div>
+</div>
+</div>
+<% end %>
+-->

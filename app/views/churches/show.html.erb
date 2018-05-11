@@ -1,0 +1,107 @@
+<h1 class="name">SIGN-IN</h1>
+<hr width='10%' style="margin-bottom: 5%;">
+<div class="container">
+  <div class="member sign-in">
+    <h3 class="display-3">MEMBER</h3>
+  </div>
+  <%= link_to new_visitor_path do %>
+    <div class="visitor sign-in">
+      <h3 class="display-3">VISITOR</h3>
+    </div>
+  <% end %>
+</div>
+<div class="attendance">
+  <ul class="list-group">
+    <% @church.members.each do |member| %>
+      <% unless member.present.include?(Date.today.strftime('%Y%m%d').to_i) %>
+        <%= link_to member.name, attendance_member_path(member), method: :patch, class: "list-group-item" %>
+      <% else %>
+        <li class="list-group-item"><s><%=member.name %></s></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<style media="screen">
+
+  body,html {
+    background-color: #fafafa;
+  }
+
+  .name {
+    text-align: center;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 50px;
+  }
+
+  .container {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+  }
+
+  .sign-in {
+    width: 46%;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visitor {
+    float: right;
+  }
+
+  .member {
+    cursor: pointer;
+  }
+
+  .display-3 {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fe4365;
+  }
+
+.attendance {
+  display: none;
+  width: 500px;
+  background-color:#fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-left: -250px;
+  position: relative;
+  left: 50%;
+}
+
+.list-group-item {
+  border-radius: 0 !important;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #444;
+  text-align: center;
+  padding: 15px 0;
+}
+a.list-group-item:hover {
+  background-color: #ddd;
+  color: #444;
+}
+li.list-group-item {
+  background-color: #ccc;
+}
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.member').click(function(){
+      $('.container').hide();
+      $('.attendance').show();
+    });
+  });
+</script>
